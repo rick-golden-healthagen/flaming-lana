@@ -3,8 +3,7 @@ angular.module( 'FlamingLana', [
   'templates-common',
   'FlamingLana.home',
   'FlamingLana.about',
-  'ui.state',
-  'ui.route'
+  'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {

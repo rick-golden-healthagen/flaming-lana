@@ -11,12 +11,11 @@
  */
 
 @import '../../vendor/bootstrap/less/mixins.less';
-@import '../../vendor/bootstrap/less/reset.less';
 @import '../../vendor/bootstrap/less/utilities.less';
 @import '../../vendor/bootstrap/less/scaffolding.less';
 @import '../../vendor/bootstrap/less/type.less';
+@import '../../vendor/bootstrap/less/forms.less';
 @import '../../vendor/bootstrap/less/grid.less';
-@import '../../vendor/bootstrap/less/layouts.less';
 @import '../../vendor/bootstrap/less/navs.less';
 @import '../../vendor/bootstrap/less/navbar.less';
 @import '../../vendor/bootstrap/less/buttons.less';
@@ -34,115 +33,98 @@
 
 
 /**
- * Typography
+ * Body
  */
 
-code, pre, .pre {
-  padding: 5px;
-  margin: 10px 0;
-  background-color: #EFEFEF;
-  border: 1px solid #DADADA;
-  .border-radius(3px);
-}
+html, body 
+{
+        height: 100%;
 
-code {
-  padding: 0 3px;
-}
-
-pre {
-  margin: 10px 0;
-  padding: 5px;
-}
-
-.page-header {
-  margin-top: 60px;
-
-  &:first-child {
-    margin-top: 20px;
-  }
-}
-
-h2 {
-  margin: 20px 0;
-  color: #666;
+        margin: 0px;
+       padding: 0px;
 }
 
 
 /**
- * Navigation
+ * Section
  */
 
-.navbar {
-  .navbar-inner {
-    padding: 0;
-  }
+#main 
+{
+      position: relative;
 
-  .nav {
-    margin: 0;
-    display: table;
-    width: 100%;
+    min-height: 100%;
+        height: auto;
 
-    li {
-      display: table-cell;
-      width: 1%;
-      float: none;
-
-      a {
-        font-weight: bold;
-        text-align: center;
-        //border-left: 1px solid rgba(255, 255, 255, 0.75);
-        border-right: 1px solid rgba(0, 0, 0, .1);
-      }
-      
-      &:first-child a {
-        border-left: 0;
-        border-radius: 3px 0 0 3px;
-      }
-      
-      &:last-child a {
-        border-right: 0;
-        border-radius: 3px 0 0 3px;
-      }
-    }
-  }
+        margin:  0px auto -31px;
+       padding: 60px    0  31px;
 }
 
+.navbar
+{
+    margin-left:  -15px;
+}
+
+.navbar-brand span
+{
+    margin-top: -20px;
+}
+
+.navbar-brand div
+{
+       display: inline-block;
+}
+
+.navbar-charts
+{
+    padding-top: 22px;
+   padding-left: 18px;
+}
+
+.navbar-right span
+{
+     margin-top: -19px;
+}
+
+.navbar-right div
+{
+       display: inline-block;
+    text-align: right;
+ padding-right:   3px;
+}
+
+.drop-shadow 
+{
+    -webkit-box-shadow: 0 0 7px 3px rgba(0, 0, 0, .5);
+            box-shadow: 0 0 7px 3px rgba(0, 0, 0, .5);
+}
+ 
+.container.drop-shadow 
+{
+    padding-left:  0;
+    padding-right: 0;
+}
+
+#about 
+{
+      position: relative;
+
+    max-height:  25%;
+        height: auto;
+
+    overflow-y: scroll;
+}
 
 /**
  * Footer
  */
 
-.footer {
-  margin-top: 80px;
-
-  .footer-inner {
-    padding: 40px 0;
-    border-top: 1px solid #DDD;
-  }
-
-  .social {
-    float: right;
-    margin: 0;
-    list-style: none;
-
-    li {
-      float: left;
-      margin-left: 20px;
-
-      a, a:visited {
-        color: @grayLight;
-        text-decoration: none;
-        font-size: 40px;
-        .transition( 250ms ease-in-out );
-
-        &:hover {
-          color: @gray;
-        }
-      }
-    }
-  }
+#footer 
+{
+              height: 31px;
+          border-top: 1px solid #CCC;
+         padding-top: 5px;
 }
-
 
 /**
  * Now that all app-wide styles have been applied, we can load the styles for
