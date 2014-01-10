@@ -7,4 +7,4 @@
 ## Bug fixes
 
 * [replace deprected Karma config.configure](https://github.com/iki/ng-boilerplate/commit/8476a25f247ef88a20ad8ff92226a684bbed0022)
-* [Roboto-Regular.woff not present](https://github.com/ngbp/ngbp/issues/121)
+* [Roboto-Regular.woff not present](https://github.com/PaulL1/ng-boilerplate/commit/28e6665b7c3ad6c003494aba9a59da5137aff546)
