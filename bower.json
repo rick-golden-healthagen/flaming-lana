@@ -11,5 +11,6 @@
     "roboto-fontface": "~0.1.2"
   },
   "dependencies": {
+    "momentjs": "~2.5.0"
   }
 }

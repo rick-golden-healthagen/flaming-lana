@@ -1,17 +1,37 @@
-describe( 'AppCtrl', function() {
-  describe( 'isCurrentUrl', function() {
-    var AppCtrl, $location, $scope;
+// app.spec.js
+//
+// last-modified: <2014-01-16 11:13:39 golden@localhost>
 
-    beforeEach( module( 'FlamingLana' ) );
+describe( 
 
-    beforeEach( inject( function( $controller, _$location_, $rootScope ) {
-      $location = _$location_;
-      $scope = $rootScope.$new();
-      AppCtrl = $controller( 'AppCtrl', { $location: $location, $scope: $scope });
-    }));
+    'AppControl', 
 
-    it( 'should pass a dummy test', inject( function() {
-      expect( AppCtrl ).toBeTruthy();
-    }));
+    function() 
+    {
+        describe( 
+
+            'isCurrentUrl', 
+
+            function() 
+            {
+                var AppCtrl, $location, $scope;
+
+                beforeEach( module( 'FlamingLana' ) );
+
+                beforeEach( 
+                    inject( 
+                        function( $controller, _$location_, $rootScope ) 
+                        {
+                            $location  = _$location_;
+                            $scope     = $rootScope.$new();
+                            AppControl = $controller( 'AppControl', { $location: $location, $scope: $scope } );
+                        }));
+
+                it( 'should pass a dummy test', 
+                    inject( 
+                        function() 
+                        {
+                            expect( AppControl ).toBeTruthy();
+                        }));
   });
 });
