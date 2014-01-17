@@ -1,11 +1,12 @@
 // app.js
 //
-// last-modified: <2014-01-16 13:28:18 golden@localhost>
+// last-modified: <2014-01-16 19:23:35 golden@localhost>
 
 angular.module( 'FlamingLana', [ 'templates-app',
                                  'templates-common',
                                  'FlamingLana.home',
                                  'FlamingLana.leakage',
+                                 'ui.bootstrap',
                                  'ui.router'
                                ] )
 
