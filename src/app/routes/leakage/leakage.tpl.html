@@ -1,6 +1,6 @@
 <div id="leakage">
 
-  <div class="col-md-4"><!-- filter controls -->
+  <div id="filters" class="col-md-3"><!-- filter controls -->
 
 <br>
 <br>
@@ -14,22 +14,12 @@
         <label class="checkbox">
           <input type="checkbox" 
                  ng-model="isPatManagedSelected"   
-                 ng-change="months = calcMonthlyTotals( isPatManagedSelected,
-                                                        isPatUnmanagedSelected,
-                                                        isPhyEmployedSelected,
-                                                        isPhyAffiliatedSelected,
-                                                        isSvcOfferedSelected,
-                                                        isSvcNotOfferedSelected )"> Managed
+                 ng-change="months = calcMonthlyTotals()"> Managed
         </label>
         <label class="checkbox">
           <input type="checkbox" 
                  ng-model="isPatUnmanagedSelected" 
-                 ng-change="months = calcMonthlyTotals( isPatManagedSelected, 
-                                                        isPatUnmanagedSelected, 
-                                                        isPhyEmployedSelected, 
-                                                        isPhyAffiliatedSelected, 
-                                                        isSvcOfferedSelected, 
-                                                        isSvcNotOfferedSelected )"> Unmanaged
+                 ng-change="months = calcMonthlyTotals()"> Unmanaged
         </label>
 
         <br>
@@ -37,23 +27,13 @@
         <label class="checkbox">
           <input type="checkbox" 
                  ng-model="isPhyEmployedSelected"
-                 ng-change="months = calcMonthlyTotals( isPatManagedSelected, 
-                                                        isPatUnmanagedSelected, 
-                                                        isPhyEmployedSelected, 
-                                                        isPhyAffiliatedSelected, 
-                                                        isSvcOfferedSelected, 
-                                                        isSvcNotOfferedSelected )"> Employed 
+                 ng-change="months = calcMonthlyTotals()"> Employed 
         </label>
 
         <label class="checkbox">
           <input type="checkbox" 
                  ng-model="isPhyAffiliatedSelected"
-                 ng-change="months = calcMonthlyTotals( isPatManagedSelected, 
-                                                        isPatUnmanagedSelected, 
-                                                        isPhyEmployedSelected, 
-                                                        isPhyAffiliatedSelected, 
-                                                        isSvcOfferedSelected, 
-                                                        isSvcNotOfferedSelected )"> Affiliated
+                 ng-change="months = calcMonthlyTotals()"> Affiliated
         </label>
 
         <br>
@@ -61,22 +41,12 @@
         <label class="checkbox">
           <input type="checkbox" 
                  ng-model="isSvcOfferedSelected"
-                 ng-change="months = calcMonthlyTotals( isPatManagedSelected, 
-                                                        isPatUnmanagedSelected, 
-                                                        isPhyEmployedSelected, 
-                                                        isPhyAffiliatedSelected, 
-                                                        isSvcOfferedSelected, 
-                                                        isSvcNotOfferedSelected )"> Offered
+                 ng-change="months = calcMonthlyTotals()"> Offered
         </label>
         <label class="checkbox">
           <input type="checkbox" 
                  ng-model="isSvcNotOfferedSelected"
-                 ng-change="months = calcMonthlyTotals( isPatManagedSelected, 
-                                                        isPatUnmanagedSelected, 
-                                                        isPhyEmployedSelected, 
-                                                        isPhyAffiliatedSelected, 
-                                                        isSvcOfferedSelected, 
-                                                        isSvcNotOfferedSelected )"> Not offered
+                 ng-change="months = calcMonthlyTotals()"> Not offered
         </label>
         <br>
 
@@ -88,7 +58,7 @@
 
   </div>
 
-  <div class="col-md-4"><!-- table of data -->
+  <div id="datatable" class="col-md-5"><!-- table of data -->
 
     <h3 class="text-center">Leakage</h3>
 
@@ -104,7 +74,7 @@
 
         <tr class="text-right" ng-repeat="month in months"> 
 
-          <td class="text-right"> {{ $index }} </td> 
+          <td class="text-right"> {{ month[ 3 ].format("MMM YYYY") }} </td> 
 
           <td class="text-right"> {{ month[ 1 ] | currency }}           </td> 
           <td class="text-right"> {{ month[ 2 ] | currency }}           </td> 
@@ -113,9 +83,9 @@
       </tbody>
 
       <tr>
-        <th class="text-right" width="33%"> {{ 0 | currency }} </th>
-        <th class="text-right" width="33%"> {{ 0 | currency }} </th>
-        <th class="text-right" width="33%"> {{ 0 | currency }} </th>
+        <th class="text-right" width="33%"> <b>Total ({{ countReduced }}) </th>
+        <th class="text-right" width="33%"> {{ totalReducedIn  | currency }} </th>
+        <th class="text-right" width="33%"> {{ totalReducedOut | currency }} </th>
       </tr>
 
     </table>
@@ -128,7 +98,10 @@
 <br>
 <br>
 
-    <table class="small table" width="100%">
+    <table id="info" class="small table" width="100%">
+
+      <tr><td>&nbsp;</td></tr>
+
       <tr>
         <td class="text-right"> from &nbsp; </td>
         <td class="text-right"> {{ minDate.format( 'MMM YYYY' ) }} </td>
@@ -143,43 +116,54 @@
       <tr><td colspan="3">&nbsp;</td></tr>
 
       <tr>
-        <th width="50%"> &nbsp;                          </th>
-        <th width="25%"> IN  </th>
-        <th width="25%"> OUT </th>
+        <th width="20%"> &nbsp; </th>
+        <th width="20%"> &nbsp; </th>
+        <th width="30%"> IN     </th>
+        <th width="30%"> OUT    </th>
       </tr>
 
       <tr>
-        <td> Patients   - Managed                                     </td>
+        <td> Patients   </td><td> Managed                             </td>
         <td class="text-right"> {{ totalManagedIn       | currency }} </td>
         <td class="text-right"> {{ totalManagedOut      | currency }} </td>
       </tr>
       <tr>
-        <td> Patients   - Unmanaged                                   </td>
+        <td> Patients   </td><td> Unmanaged                           </td>
         <td class="text-right"> {{ totalUnmanagedIn     | currency }} </td>
         <td class="text-right"> {{ totalUnmanagedOut    | currency }} </td>
       </tr>
+
+      <tr><td colspan="4">&nbsp;</td></tr>
+
       <tr>
-        <td> Physicians - Employed                                    </td>
+        <td> Physicians </td><td> Employed                            </td>
         <td class="text-right"> {{ totalEmployedIn      | currency }} </td>
         <td class="text-right"> {{ totalEmployedOut     | currency }} </td>
       </tr>
       <tr>
-        <td> Physicians - Affiliated                                  </td>
+        <td> Physicians </td><td> Affiliated                          </td>
         <td class="text-right"> {{ totalAffiliatedIn    | currency }} </td>
         <td class="text-right"> {{ totalAffiliatedOut   | currency }} </td>
       </tr>
+
+      <tr><td colspan="4">&nbsp;</td></tr>
+
       <tr>
-        <td> Services   - Offered                                     </td>
+        <td> Services   </td><td> Offered                             </td>
         <td class="text-right"> {{ totalOfferedIn       | currency }} </td>
         <td class="text-right"> {{ totalOfferedOut      | currency }} </td>
       </tr>
       <tr>
-        <td> Services   - Not Offered                                 </td>
+        <td> Services   </td><td> Not Offered                         </td>
         <td class="text-right"> {{ totalNotOfferedIn    | currency }} </td>
         <td class="text-right"> {{ totalNotOfferedOut   | currency }} </td>
       </tr>
+
+      <tr><td colspan="4">&nbsp;</td></tr>
+
       <tr>
-        <td class="text-right"> <b>Total ({{ data.length }})&nbsp;</b>                   </td>
+        <td> &nbsp; </td>
+        <td class="text-right"> <b>Total ({{ data.length }})</b>      </td>
         <td class="text-right"> {{ totalInNetwork       | currency }} </td>
         <td class="text-right"> {{ totalOutOfNetwork    | currency }} </td>
       </tr>
