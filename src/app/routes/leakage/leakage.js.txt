@@ -1,0 +1,52 @@
+
+                        if ( patM === ( element[ $scope.PATIENT_TYPE   ] === "M" )) { total += element[ $scope.AMOUNT ]; return; }
+                        if ( patU === ( element[ $scope.PATIENT_TYPE   ] === "U" )) { total += element[ $scope.AMOUNT ]; return; }
+                        
+                        if ( phyE === ( element[ $scope.PHYSICIAN_TYPE ] === "E" )) { total += element[ $scope.AMOUNT ]; return; }
+                        if ( phyA === ( element[ $scope.PHYSICIAN_TYPE ] === "A" )) { total += element[ $scope.AMOUNT ]; return; }
+                        
+                        if ( svcO === ( element[ $scope.SERVICE_TYPE   ] === "O" )) { total += element[ $scope.AMOUNT ]; return; }
+                        if ( svcN === ( element[ $scope.SERVICE_TYPE   ] === "N" )) { total += element[ $scope.AMOUNT ]; return; }
+                        
+                        if ( netI === ( element[ $scope.NETWORK_FLAG   ] === "I" )) { total += element[ $scope.AMOUNT ]; return; }
+                        if ( netO === ( element[ $scope.NETWORK_FLAG   ] === "O" )) { total += element[ $scope.AMOUNT ]; return; }
+
+                var total = data.reduce( 
+                    function ( initialValue, element, index, array )
+                    {
+                        var date  = element[ $scope.DATE ];
+                        var som   = date.startOf( 'month' );
+
+                        if ( ! som.isSame( targetDate ) ) { return initialValue; }
+                        
+
+                        var isManagedPatient   = element[ $scope.PATIENT_TYPE ] === "M";
+                        var isUnmanagedPatient = element[ $scope.PATIENT_TYPE ] === "U";
+                        
+                        if ( ! ( ( patM === isManagedPatient ) || ( patU === isUnmanagedPatient ) ) ) { return initialValue; }
+
+                        
+                        var isEmployedPhysician   = element[ $scope.PHYSICIAN_TYPE ] === "E";
+                        var isAffiliatedPhysician = element[ $scope.PHYSICIAN_TYPE ] === "A";
+                        
+                        if ( ! ( ( phyE === isEmployedPhysician ) || ( phyA === isAffiliatedPhysician ) ) ) { return initialValue; }
+
+                        
+                        var isOfferedService    = element[ $scope.SERVICE_TYPE ] === "O";
+                        var isNotOfferedService = element[ $scope.SERVICE_TYPE ] === "N";
+                        
+                        if ( ! ( ( svcO === isOfferedService ) || ( svcN === isNotOfferedService ) ) ) { return initialValue; }
+
+                        
+                        var isInNetwork    = element[ $scope.NETWORK_FLAG ] === "I";
+                        var isOutOfNetwork = element[ $scope.NETWORK_FLAG ] === "O";
+
+                        if ( netI === isInNetwork    ) { return initialValue + element[ $scope.AMOUNT ]; }
+                        if ( netO === isOutOfNetwork ) { return initialValue + element[ $scope.AMOUNT ]; }
+                    },
+                    
+                    0 );
+
+
+
+
