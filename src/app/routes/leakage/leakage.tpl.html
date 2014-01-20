@@ -48,9 +48,6 @@
                  ng-model="isSvcNotOfferedSelected"
                  ng-change="months = calcMonthlyTotals()"> Not offered
         </label>
-        <br>
-
-        <h4> Date </h4>
 
       </fieldset>
 
@@ -60,7 +57,7 @@
 
   <div id="datatable" class="col-md-5"><!-- table of data -->
 
-    <h3 class="text-center">Leakage</h3>
+    <h3 class="text-center">Leakage by Month</h3>
 
     <table class="table table-striped table-bordered" width="100%">
 
@@ -100,16 +97,18 @@
 
     <table id="info" class="small table" width="100%">
 
-      <tr><td>&nbsp;</td></tr>
+      <tr><td colspan="4" class="text-center">&nbsp;&nbsp;&nbsp;<b>Total Leakage</b></td></tr>
 
       <tr>
-        <td class="text-right"> from &nbsp; </td>
-        <td class="text-right"> {{ minDate.format( 'MMM YYYY' ) }} </td>
+        <td> &nbsp; </td>
+        <td class="text-right"> from </td>
+        <td class="text-right"> {{ minDate.format( 'MMM YYYY' ) }}&nbsp;&nbsp;&nbsp; </td>
         <td> &nbsp; </td>
       </tr>
       <tr>
-        <td class="text-right"> to &nbsp; </td>
-        <td class="text-right"> {{ maxDate.format( 'MMM YYYY' ) }} </td>
+        <td> &nbsp; </td>
+        <td class="text-right"> to </td>
+        <td class="text-right"> {{ maxDate.format( 'MMM YYYY' ) }}&nbsp;&nbsp;&nbsp; </td>
         <td> &nbsp; </td>
       </tr>
 
@@ -123,12 +122,12 @@
       </tr>
 
       <tr>
-        <td> Patients   </td><td> Managed                             </td>
+        <td class="text-right"> Patients   </td><td>-&nbsp;Managed</td>
         <td class="text-right"> {{ totalManagedIn       | currency }} </td>
         <td class="text-right"> {{ totalManagedOut      | currency }} </td>
       </tr>
       <tr>
-        <td> Patients   </td><td> Unmanaged                           </td>
+        <td>&nbsp;</td><td>-&nbsp;Unmanaged</td>
         <td class="text-right"> {{ totalUnmanagedIn     | currency }} </td>
         <td class="text-right"> {{ totalUnmanagedOut    | currency }} </td>
       </tr>
@@ -136,12 +135,12 @@
       <tr><td colspan="4">&nbsp;</td></tr>
 
       <tr>
-        <td> Physicians </td><td> Employed                            </td>
+        <td class="text-right"> Physicians </td><td>-&nbsp;Employed</td>
         <td class="text-right"> {{ totalEmployedIn      | currency }} </td>
         <td class="text-right"> {{ totalEmployedOut     | currency }} </td>
       </tr>
       <tr>
-        <td> Physicians </td><td> Affiliated                          </td>
+        <td>&nbsp;</td><td>-&nbsp;Affiliated</td>
         <td class="text-right"> {{ totalAffiliatedIn    | currency }} </td>
         <td class="text-right"> {{ totalAffiliatedOut   | currency }} </td>
       </tr>
@@ -149,12 +148,12 @@
       <tr><td colspan="4">&nbsp;</td></tr>
 
       <tr>
-        <td> Services   </td><td> Offered                             </td>
+        <td class="text-right"> Services </td><td>-&nbsp;Offered</td>
         <td class="text-right"> {{ totalOfferedIn       | currency }} </td>
         <td class="text-right"> {{ totalOfferedOut      | currency }} </td>
       </tr>
       <tr>
-        <td> Services   </td><td> Not Offered                         </td>
+        <td>&nbsp;</td><td>-&nbsp;Not&nbsp;Offered</td>
         <td class="text-right"> {{ totalNotOfferedIn    | currency }} </td>
         <td class="text-right"> {{ totalNotOfferedOut   | currency }} </td>
       </tr>
