@@ -6,11 +6,10 @@
     "angular-mocks": "~1.2.7",
     "bootstrap": "~3.0.3",
     "angular-bootstrap": "~0.10.0",
-    "angular-ui-router": "~0.2.7",
+    "angular-ui-router": "~0.2.8",
     "angular-ui-utils": "~0.1.0",
-    "momentjs": "~2.5.0"
+    "momentjs": "~2.5.0",
     "roboto-fontface": "~0.1.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
