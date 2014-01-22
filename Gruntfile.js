@@ -1,3 +1,19 @@
+// Gruntfile.js
+//
+// Grunt - task management configuration.
+//
+//   build   - assemble application components (and compile templates) for development testing
+//   compile - compile (uglify/compress) application for deployment
+//
+//   watch   - update build (development testing) when a source file changes
+//
+//   default - build, compile
+//
+//
+// Based on Grunfile.js from ng-boilerplate 0.3.1 (2013-09-13).
+//
+// last-modified: <2014-01-21 16:07:00 golden@golden-garage.net>
+
 module.exports = function ( grunt ) {
   
   /** 

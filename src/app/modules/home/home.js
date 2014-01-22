@@ -1,9 +1,11 @@
 // home.js
 //
-// last-modified: <2014-01-16 13:25:07 golden@localhost>
+// An AngularJs module for the application's landing page.
+//
+// last-modified: <2014-01-21 14:59:32 golden@golden-garage.net>
 
-angular.module( 'FlamingLana.home', [ 'ui.router'
-                                    ])
+angular.module( 'SNA.home', [ 'ui.router'
+                            ])
 
     .config(
 
@@ -21,7 +23,7 @@ angular.module( 'FlamingLana.home', [ 'ui.router'
                         main: 
                         {
                              controller: 'HomeControl',
-                            templateUrl: 'routes/home/home.tpl.html'
+                            templateUrl: 'modules/home/home.tpl.html'
                         }
                     },
 

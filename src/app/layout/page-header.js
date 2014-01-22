@@ -1,12 +1,12 @@
-// pageHeader.js
+// page-header.js
 //
 // Usage:  <page-header></page-header>
 //
-// create the app's header
+// An AngluarJS directive for creating the application's header.
 //
-// last-modified: <2014-01-16 10:42:08 golden@localhost>
+// last-modified: <2014-01-21 15:16:40 golden@golden-garage.net>
 
-angular.module( 'FlamingLana' )
+angular.module( 'SNA' )
 
     .directive( 
 
@@ -18,7 +18,7 @@ angular.module( 'FlamingLana' )
                 
                 restrict:    "E",                                                // Element (not an Attribute)
                 
-                templateUrl: "nav/page-header.tpl.html"                          // template file
+                templateUrl: "layout/page-header.tpl.html"                       // template file
             };
             
         });

@@ -1,37 +1,36 @@
 // app.spec.js
 //
-// last-modified: <2014-01-16 11:13:39 golden@localhost>
+// The unit tests for the application container.
+//
+// last-modified: <2014-01-21 15:20:06 golden@golden-garage.net>
 
-describe( 
-
-    'AppControl', 
-
-    function() 
-    {
-        describe( 
-
-            'isCurrentUrl', 
-
-            function() 
-            {
-                var AppCtrl, $location, $scope;
-
-                beforeEach( module( 'FlamingLana' ) );
-
-                beforeEach( 
-                    inject( 
-                        function( $controller, _$location_, $rootScope ) 
-                        {
-                            $location  = _$location_;
-                            $scope     = $rootScope.$new();
-                            AppControl = $controller( 'AppControl', { $location: $location, $scope: $scope } );
-                        }));
-
-                it( 'should pass a dummy test', 
-                    inject( 
+describe( 'AppControl', 
+          function() 
+          {
+              
+              describe( 'isCurrentUrl', 
                         function() 
                         {
-                            expect( AppControl ).toBeTruthy();
-                        }));
-  });
-});
+                            var AppCtrl, $location, $scope;
+
+                            beforeEach( module( 'SNA' ) );
+
+                            beforeEach( 
+                                inject( 
+                                    function( $controller, _$location_, $rootScope ) 
+                                    {
+                                         $location = _$location_;
+                                            $scope = $rootScope.$new();
+
+                                        AppControl = $controller( 'AppControl', { $location: $location, 
+                                                                                     $scope: $scope     } );
+                                    }));
+
+                            it( 'should pass a dummy test', 
+                                inject( 
+                                    function() 
+                                    {
+                                        expect( AppControl ).toBeTruthy();
+                                    }));
+                        });
+          });

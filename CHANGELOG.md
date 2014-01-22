@@ -3,6 +3,8 @@
 ## Features
 
 - Based on ng boilerplate 0.3.1 (2013-09-13) 
+- Upgraded to latest versions of vendor components
+- Modified original directory structure (see README.md files)
 
 ## Bug fixes
 

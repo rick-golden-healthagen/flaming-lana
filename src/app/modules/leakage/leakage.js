@@ -1,11 +1,13 @@
 // leakage.js
 //
-// last-modified: <2014-01-19 17:31:49 golden@localhost>
+// An AngularJS module for Patient Leakage by Month.
+//
+// last-modified: <2014-01-21 14:58:56 golden@golden-garage.net>
 
-angular.module( 'FlamingLana.leakage', [ 'ui.router',
-                                         'placeholders',
-                                         'ui.bootstrap'
-                                       ] )
+angular.module( 'SNA.leakage', [ 'ui.router',
+                                 'placeholders',
+                                 'ui.bootstrap'
+                               ] )
 
     .config( 
 
@@ -23,7 +25,7 @@ angular.module( 'FlamingLana.leakage', [ 'ui.router',
                         main: 
                         {
                              controller: 'LeakageControl',
-                            templateUrl: 'routes/leakage/leakage.tpl.html'
+                            templateUrl: 'modules/leakage/leakage.tpl.html'
                         }
                     },
                     

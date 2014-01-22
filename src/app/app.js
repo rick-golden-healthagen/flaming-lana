@@ -1,14 +1,16 @@
 // app.js
 //
-// last-modified: <2014-01-16 19:23:35 golden@localhost>
+// An AngularJS module for the application container.
+//
+// last-modified: <2014-01-21 15:18:49 golden@golden-garage.net>
 
-angular.module( 'FlamingLana', [ 'templates-app',
-                                 'templates-common',
-                                 'FlamingLana.home',
-                                 'FlamingLana.leakage',
-                                 'ui.bootstrap',
-                                 'ui.router'
-                               ] )
+angular.module( 'SNA', [ 'templates-app',
+                         'templates-common',
+                         'SNA.home',
+                         'SNA.leakage',
+                         'ui.bootstrap',
+                         'ui.router'
+                       ] )
 
     .config( 
 
@@ -34,13 +36,12 @@ angular.module( 'FlamingLana', [ 'templates-app',
         {
             $scope.$on( '$stateChangeSuccess', 
                 
-                        function( event, toState, toParams, fromState, fromParams ) 
+                        function ( event, toState, toParams, fromState, fromParams ) 
                         {
                             if ( angular.isDefined( toState.data.pageTitle ) ) 
                             {
-                                $scope.pageTitle = toState.data.pageTitle + ' | flaming-lana' ;
+                                $scope.pageTitle = 'SNA | ' + toState.data.pageTitle;
                             }
                         });
         }
     );
-
